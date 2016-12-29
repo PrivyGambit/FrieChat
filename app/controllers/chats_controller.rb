@@ -4,7 +4,6 @@ class ChatsController < ApplicationController
   # GET /chats
   def index
     @chats = Chat.all
-
     render json: @chats
   end
 
