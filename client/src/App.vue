@@ -1,7 +1,7 @@
 <template>
   <main id="main" role="main">
     <Chats></Chats>
-    <ChatForm></ChatForm> 
+    <ChatForm></ChatForm>
   </main>
 </template>
 
@@ -14,6 +14,20 @@
     components: {
       Chats,
       ChatForm
+    },
+    created () {
+      this.getChats()
+    },
+    methods: {
+      getChats () {
+        this.$http
+          .get('http://localhost:3000/chats')
+          .then((response) => {
+            this.chats = response.body
+          }, (err) => {
+            console.log(err)
+          })
+      }
     }
   }
 </script>
