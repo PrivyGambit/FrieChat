@@ -21,7 +21,7 @@
     methods: {
       getChats () {
         this.$http
-          .get('http://localhost:3000/chats')
+          .get('http://localhost:3001/chats')
           .then((response) => {
             this.chats = response.body
           }, (err) => {
