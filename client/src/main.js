@@ -2,12 +2,27 @@
 // (runtime-only or standalone) has been set in webpack.base.conf with an alias.
 import Vue from 'vue'
 import App from './App'
+import resource from 'vue-resource'
+import Vuex from 'vuex'
 
-Vue.use(require('vue-resource'))
+Vue.use(Vuex)
+Vue.use(resource)
+
+const store = new Vuex.Store({
+  state: {
+    count: 0
+  },
+  mutations: {
+    increment (state) {
+      state.count++
+    }
+  }
+})
 
 /* eslint-disable no-new */
 new Vue({
   el: '#app',
   template: '<App/>',
+  store,
   components: { App }
 })
