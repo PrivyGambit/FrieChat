@@ -14,20 +14,6 @@
     components: {
       Chats,
       ChatForm
-    },
-    created () {
-      this.getChats()
-    },
-    methods: {
-      getChats () {
-        this.$http
-          .get('http://localhost:3001/chats')
-          .then((response) => {
-            this.chats = response.body
-          }, (err) => {
-            console.log(err)
-          })
-      }
     }
   }
 </script>

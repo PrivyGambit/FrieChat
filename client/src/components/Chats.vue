@@ -15,6 +15,20 @@
       return {
         chats: []
       }
+    },
+    created () {
+      this.getChats()
+    },
+    methods: {
+      getChats () {
+        this.$http
+          .get('http://dev.therealedsheenan:3001/chats')
+          .then((response) => {
+            this.chats = response.body
+          }, (err) => {
+            console.log(err)
+          })
+      }
     }
   }
 </script>

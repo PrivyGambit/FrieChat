@@ -23,7 +23,7 @@
     methods: {
       postChats (message) {
         this.$http
-          .post('http://localhost:3001/chats/', {
+          .post('http://dev.therealedsheenan:3001/chats/', {
             chat: {
               user_id: 1,
               message: message
